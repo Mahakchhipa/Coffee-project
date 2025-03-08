@@ -70,15 +70,15 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white">
+    <header className="bg-white container">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex items-center justify-between py-6 px-20 "
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image src={logo} height={100} width={200} />
+            <Image src={logo} alt="imge" height={100} width={200} />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -114,7 +114,7 @@ const Header = () => {
           </a>
         </div>
         <div>
-          <button className="text-base hover:scale-110 bg-black text-white px-4 py-2 mx-4 rounded-3xl shadow-2xl transition delay-700 ">
+          <button className="text-base hover:scale-110 bg-black  text-white px-4 py-2 mx-4 rounded-3xl shadow-2xl transition delay-700 ">
             Buy Gift Vouchers{" "}
           </button>
         </div>
