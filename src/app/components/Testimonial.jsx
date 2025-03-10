@@ -1,109 +1,107 @@
 "use client";
 import Image from "next/image";
 import girl1 from "../../../public/img/girl1.webp";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import * as React from "react";
-
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
-
-// import required modules
 import { FreeMode } from "swiper/modules";
+
 const Testimonial = () => {
+  const clientImages = [
+    "https://randomuser.me/api/portraits/women/75.jpg",
+    "https://randomuser.me/api/portraits/men/76.jpg",
+    "https://randomuser.me/api/portraits/women/77.jpg",
+    "https://randomuser.me/api/portraits/men/78.jpg",
+    "https://randomuser.me/api/portraits/women/79.jpg",
+  ];
+
   return (
-    <div>
-      <div className="px-20 ">
+    <div className="w-full py-20 px-4 md:px-20 text-center">
+      <div className="py-10">
+        <h1 className="text-4xl md:text-6xl font-bold">Client Testimonials</h1>
+        <p className="text-gray-700 text-lg md:text-xl py-4 max-w-3xl mx-auto">
+          See what our clients have to say about our services. Real reviews from
+          happy customers.
+        </p>
+        <div className="mt-10 flex items-center justify-center pb-5 gap-x-6">
+          {/* Client Images */}
+          <div className="hidden sm:flex -space-x-2 overflow-hidden">
+            {clientImages.map((src, index) => (
+              <div key={index} className="relative w-12 h-12">
+                <Image
+                  className="rounded-full ring-2 ring-white"
+                  src={src}
+                  alt={`Client ${index + 1}`}
+                  fill
+                  sizes="48px"
+                />
+              </div>
+            ))}
+          </div>
+          {/* Rating Section */}
+          <div className="border-none sm:border-l-2 border-black sm:pl-8">
+            <div className="flex items-center">
+              <h3 className="text-2xl font-semibold mr-2">4.6</h3>
+              <Image
+                className="w-5"
+                src="https://www.svgrepo.com/show/513354/star.svg"
+                alt="stars-icon"
+                width={20}
+                height={20}
+              />
+            </div>
+            <p className="text-sm">Rated by 25k+ on Google.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Swiper Testimonial Slider */}
+      <div className="w-full max-w-6xl mx-auto">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          freeMode={true}
-          pagination={{
-            clickable: true,
+          slidesPerView={1}
+          spaceBetween={20}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
+          freeMode={true}
           modules={[FreeMode]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="flex flex-col justify-center items-center hover:scale-105 min-h-screen">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
-                <Image src={girl1} alt="Mountain" className="w-full h-72 " />
-                <div className="p-6">
-                  <div className="grid grid-cols-2">
-                    <div>
-                      <h2 className="text-xl font-bold text-gray-800 mb-2">
-                        Beautiful Mountain View
+          {[3, 4, 5].map((rating, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-lg">
+                  <div className="relative w-full h-72">
+                    <Image
+                      src={girl1}
+                      alt="Testimonial"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center">
+                      <h2 className="text-lg font-bold text-gray-800">
+                        Exceptional Service!
                       </h2>
-                    </div>
-                    <div>
                       <Stack spacing={1}>
-                        <Rating name="size-medium" defaultValue={3} />
+                        <Rating name="size-medium" value={rating} readOnly />
                       </Stack>
                     </div>
+                    <p className="text-gray-700 leading-tight mt-2">
+                      The team was extremely professional and helpful. I highly
+                      recommend their services!
+                    </p>
                   </div>
-                  <p className="text-gray-700 leading-tight mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aliquam eu sapien porttitor, blandit velit ac, vehicula
-                    elit. Nunc et ex at turpis rutrum viverra.
-                  </p>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col justify-center items-center hover:scale-105  min-h-screen">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
-                <Image src={girl1} alt="Mountain" className="w-full h-72 " />
-                <div className="p-6">
-                  <div className="grid grid-cols-2">
-                    <div>
-                      <h2 className="text-xl font-bold text-gray-800 mb-2">
-                        Beautiful Mountain View
-                      </h2>
-                    </div>
-                    <div>
-                      <Stack spacing={1}>
-                        <Rating name="size-medium" defaultValue={4} />
-                      </Stack>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 leading-tight mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aliquam eu sapien porttitor, blandit velit ac, vehicula
-                    elit. Nunc et ex at turpis rutrum viverra.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col justify-center hover:scale-105 items-center min-h-screen">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
-                <Image src={girl1} alt="Mountain" className="w-full h-72 " />
-                <div className="p-6">
-                  <div className="grid grid-cols-2">
-                    <div>
-                      <h2 className="text-xl font-bold text-gray-800 mb-2">
-                        Beautiful Mountain View
-                      </h2>
-                    </div>
-                    <div>
-                      <Stack spacing={1}>
-                        <Rating name="size-medium" defaultValue={5} />
-                      </Stack>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 leading-tight mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aliquam eu sapien porttitor, blandit velit ac, vehicula
-                    elit. Nunc et ex at turpis rutrum viverra.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
