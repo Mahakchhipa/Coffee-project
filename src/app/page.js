@@ -4,6 +4,8 @@ import Banner from "./components/Banner";
 import Explore from "./components/Explore";
 import OrderCoffee from "./components/OrderCoffee";
 import BestSelling from "./components/BestSelling";
+import Instant from "./components/Instant";
+import Testimonial from "./components/Testimonial";
 export default function Home() {
   return (
     <div>
@@ -12,6 +14,8 @@ export default function Home() {
       <Explore />
       <OrderCoffee />
       <BestSelling/>
+      <Instant/>
+      <Testimonial/>
     </div>
   );
 }
