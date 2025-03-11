@@ -1,15 +1,20 @@
 "use client";
 import Image from "next/image";
-import girl1 from "../../../public/img/girl1.webp";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode } from "swiper/modules";
+import girl1 from "../../../public/img/girl1.webp";
 
 const Testimonial = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   const clientImages = [
     "https://randomuser.me/api/portraits/women/75.jpg",
     "https://randomuser.me/api/portraits/men/76.jpg",
@@ -21,14 +26,17 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="w-full py-20 px-4 md:px-20 text-center">
-      <div className="py-10">
+    <div className="w-full py-16 px-6 md:px-20 text-center bg-gray-50">
+      {/* Heading */}
+      <div className="py-8" data-aos="zoom-in">
         <h1 className="text-4xl md:text-6xl font-bold">Client Testimonials</h1>
         <p className="text-gray-700 text-lg md:text-xl py-4 max-w-3xl mx-auto">
           See what our clients have to say about our services. Real reviews from
           happy customers.
         </p>
-        <div className="mt-10 flex items-center justify-center pb-5 gap-x-6">
+
+        {/* Client Images + Rating Section */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center pb-5 gap-6">
           {/* Client Images */}
           <div className="hidden sm:flex -space-x-2 overflow-hidden">
             {clientImages.map((src, index) => (
@@ -43,9 +51,10 @@ const Testimonial = () => {
               </div>
             ))}
           </div>
+
           {/* Rating Section */}
-          <div className="border-none sm:border-l-2 border-black sm:pl-8">
-            <div className="flex items-center">
+          <div className="border-none sm:border-l-2 border-black sm:pl-8 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start">
               <h3 className="text-2xl font-semibold mr-2">4.6</h3>
               <Image
                 className="w-5"
@@ -61,7 +70,7 @@ const Testimonial = () => {
       </div>
 
       {/* Swiper Testimonial Slider */}
-      <div className="w-full ">
+      <div className="w-full" data-aos="zoom-up">
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
@@ -74,10 +83,10 @@ const Testimonial = () => {
           modules={[FreeMode]}
           className="mySwiper"
         >
-          {[3, 4, 5 ,6,7,8].map((rating, index) => (
+          {[3, 4, 5, 4, 5, 3].map((rating, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col mx-10  justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-gray-300 ">
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-lg">
+              <div className="flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg hover:shadow-2xl rounded-lg p-4">
+                <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-lg">
                   <div className="relative w-full h-72">
                     <Image
                       src={girl1}
@@ -86,7 +95,7 @@ const Testimonial = () => {
                       className="object-contain"
                     />
                   </div>
-                  <div className="p-4">
+                  <div className="p-6">
                     <div className="flex justify-between items-center">
                       <h2 className="text-lg font-bold text-gray-800">
                         Exceptional Service!
@@ -95,7 +104,7 @@ const Testimonial = () => {
                         <Rating name="size-medium" value={rating} readOnly />
                       </Stack>
                     </div>
-                    <p className="text-gray-700 leading-tight mt-2">
+                    <p className="text-gray-700 leading-relaxed mt-2">
                       The team was extremely professional and helpful. I highly
                       recommend their services!
                     </p>

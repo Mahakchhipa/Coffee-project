@@ -1,143 +1,73 @@
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
-import React from "react";
 import midcoffee1 from "../../../public/img/midcoffee1.webp";
 import { Button } from "@/components/ui/button";
+
+const coffeeItems = [
+  {
+    id: 1,
+    title: "Double Espresso",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur omnis quis vitae molestias, doloribus ratione officia tempora.",
+    price: "$59.99",
+    image: midcoffee1,
+  },
+  {
+    id: 2,
+    title: "Caramel Macchiato",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur omnis quis vitae molestias, doloribus ratione officia tempora.",
+    price: "$49.99",
+    image: midcoffee1,
+  },
+  {
+    id: 3,
+    title: "Mocha Latte",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur omnis quis vitae molestias, doloribus ratione officia tempora.",
+    price: "$45.99",
+    image: midcoffee1,
+  },
+];
+
 const BestSelling = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
-    <div className="bg-gray-50  md:pb-80">
-      <div className=" px-20">
-      <div className="grid grid-cols-6 text-center">
-        <div className="col-start-2 col-span-4 py-28">
-          {" "}
-          <h1 className="text-6xl font-bold py-3"> Best Selling Coffee</h1>
-          <p className="text-xl w-2/4 mx-auto py-4 font-normal text-gray-800 ">
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus optio
-            quisquam dicta maxime, perferendis veniam!
-          </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-10">
-          <div className=" justify-center text-center px-12 py-8 items-center hover:shadow-xl shadow-lg hover:scale-110 p-5 relative  ">
-            <div className="grid grid-cols-2 gap-6">
-              <div className=" content-center justify-center">
-                <p className="text-gray-500 text-2xl "> #Selling</p>
-                <h2 className="text-3xl font-bold"> Double Espresso</h2>
-              </div>
-              <div>
-                <Image
-                  src={midcoffee1}
-                  alt="coffee-img"
-                  height={200}
-                  width={200}
-                  className="absolute -right-0  bottom-96"
-                />
-              </div>
-            </div>
-            <div className="text-center  w-full">
-              <div className=" font-normal w-full">
-                <p className="text-xl text-center pt-8">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Consequatur omnis quis vitae molestias, doloribus ratione
-                  officia tempora, saepe impedit ea earum! Aspernatur
-                  reprehenderit repellendus ipsum necessitatibus nesciunt
-                  blanditiis, consequatur ex.
-                </p>
-                <div className="grid grid-cols-2 my-4 ">
-                  <div className="text-2xl font-bold content-center">
-                    {" "}
-                    $ 59.99
-                  </div>
-                  <div>
-                    <Button className="text-lg rounded-xl my-3 hover:scale-110 font-normal tracking-wide transition-all p-7">
-                      Order Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className=" justify-center text-center px-12 py-8 items-center hover:shadow-xl shadow-lg hover:scale-110 p-5 relative  ">
-            <div className="grid grid-cols-2 gap-6">
-              <div className=" content-center justify-center">
-                <p className="text-gray-500 text-2xl "> #Selling</p>
-                <h2 className="text-3xl font-bold"> Double Espresso</h2>
-              </div>
-              <div>
-                <Image
-                  src={midcoffee1}
-                  alt="coffee-img"
-                  height={200}
-                  width={200}
-                  className="absolute -right-0  bottom-96"
-                />
-              </div>
-            </div>
-            <div className="text-center  w-full">
-              <div className=" font-normal w-full">
-                <p className="text-xl text-center pt-8">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Consequatur omnis quis vitae molestias, doloribus ratione
-                  officia tempora, saepe impedit ea earum! Aspernatur
-                  reprehenderit repellendus ipsum necessitatibus nesciunt
-                  blanditiis, consequatur ex.
-                </p>
-                <div className="grid grid-cols-2 my-4 ">
-                  <div className="text-2xl font-bold content-center">
-                    {" "}
-                    $ 59.99
-                  </div>
-                  <div>
-                    <Button className="text-lg rounded-xl my-3 hover:scale-110 font-normal tracking-wide transition-all p-7">
-                      Order Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className=" justify-center text-center px-12 py-8 items-center hover:shadow-xl shadow-lg hover:scale-110 p-5 relative  ">
-            <div className="grid grid-cols-2 gap-6">
-              <div className=" content-center justify-center">
-                <p className="text-gray-500 text-2xl "> #Selling</p>
-                <h2 className="text-3xl font-bold"> Double Espresso</h2>
-              </div>
-              <div>
-                <Image
-                  src={midcoffee1}
-                  alt="coffee-img"
-                  height={200}
-                  width={200}
-                  className="absolute -right-0  bottom-96"
-                />
-              </div>
-            </div>
-            <div className="text-center  w-full">
-              <div className=" font-normal w-full">
-                <p className="text-xl text-center pt-8">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Consequatur omnis quis vitae molestias, doloribus ratione
-                  officia tempora, saepe impedit ea earum! Aspernatur
-                  reprehenderit repellendus ipsum necessitatibus nesciunt
-                  blanditiis, consequatur ex.
-                </p>
-                <div className="grid grid-cols-2 my-4 ">
-                  <div className="text-2xl font-bold content-center">
-                    {" "}
-                    $ 59.99
-                  </div>
-                  <div>
-                    <Button className="text-lg rounded-xl my-3 hover:scale-110 font-normal tracking-wide transition-all p-7">
-                      Order Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="bg-gray-50 py-20 px-6 md:px-20">
+      <div className="text-center max-w-2xl mx-auto" data-aos="fade-right">
+        <h1 className="text-4xl md:text-6xl font-bold py-3">Best Selling Coffee</h1>
+        <p className="text-lg md:text-xl text-gray-800 py-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus optio quisquam dicta maxime, perferendis veniam!
+        </p>
       </div>
-    </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12" data-aos="fade-left">
+        {coffeeItems.map((coffee) => (
+          <div
+            key={coffee.id}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-all relative text-center"
+          >
+            <div className="flex flex-col items-center">
+              <p className="text-gray-500 text-lg">#Selling</p>
+              <h2 className="text-2xl font-bold">{coffee.title}</h2>
+              <Image src={coffee.image} alt={coffee.title} height={150} width={150} className="mt-4" />
+              <p className="text-gray-700 mt-4 text-base md:text-lg">{coffee.description}</p>
+              <div className="flex justify-between items-center w-full mt-6">
+                <span className="text-xl font-bold">{coffee.price}</span>
+                <Button className="text-lg rounded-xl px-6 py-3 hover:scale-110 font-medium tracking-wide transition-all">
+                  Order Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

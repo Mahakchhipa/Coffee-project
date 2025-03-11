@@ -1,8 +1,13 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import AOS from "aos";
 
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
   return (
-    <div className="bg-white dark:bg-gray-800 w-full">
+    <div className="bg-white dark:bg-gray-800 w-full" data-aos="zoom-out-right">
       <footer className="bg-white text-gray-700 border-t border-gray-200 py-8">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
