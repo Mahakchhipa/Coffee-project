@@ -6,6 +6,7 @@ import OrderCoffee from "./components/OrderCoffee";
 import BestSelling from "./components/BestSelling";
 import Instant from "./components/Instant";
 import Testimonial from "./components/Testimonial";
+import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div>
@@ -13,9 +14,10 @@ export default function Home() {
       <Banner />
       <Explore />
       <OrderCoffee />
-      <BestSelling/>
-      <Instant/>
-      <Testimonial/>
+      <BestSelling />
+      <Instant />
+      <Testimonial />
+    <Footer/>
     </div>
   );
 }

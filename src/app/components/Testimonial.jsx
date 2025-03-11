@@ -16,6 +16,8 @@ const Testimonial = () => {
     "https://randomuser.me/api/portraits/women/77.jpg",
     "https://randomuser.me/api/portraits/men/78.jpg",
     "https://randomuser.me/api/portraits/women/79.jpg",
+    "https://randomuser.me/api/portraits/women/80.jpg",
+    "https://randomuser.me/api/portraits/men/81.jpg",
   ];
 
   return (
@@ -59,7 +61,7 @@ const Testimonial = () => {
       </div>
 
       {/* Swiper Testimonial Slider */}
-      <div className="w-full max-w-6xl mx-auto">
+      <div className="w-full ">
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
@@ -72,16 +74,16 @@ const Testimonial = () => {
           modules={[FreeMode]}
           className="mySwiper"
         >
-          {[3, 4, 5].map((rating, index) => (
+          {[3, 4, 5 ,6,7,8].map((rating, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer">
+              <div className="flex flex-col mx-10  justify-center items-center hover:scale-105 transition-transform duration-300 cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-gray-300 ">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-lg">
                   <div className="relative w-full h-72">
                     <Image
                       src={girl1}
                       alt="Testimonial"
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                   <div className="p-4">

@@ -22,7 +22,7 @@ const Instant = () => {
             Download Your App
           </Button>
         </div>
-        <div className="  grid grid-cols-2 relative">
+        <div className="justify-center items-center flex relative">
           <div>
             <Image
               src={instant}
